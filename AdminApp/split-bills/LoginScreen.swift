@@ -130,10 +130,6 @@ struct LoginScreen: View {
         }
     }
     
-    
-    
-  
-    
     struct LoginForm: View {
         
         @EnvironmentObject var factory: LoginScreenFactory
