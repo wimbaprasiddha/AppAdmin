@@ -7,23 +7,51 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
 
 struct Summary: View {
+    
     @State var toggle = false
+    @State var doctorName = ""
+    @State var polyName = ""
+    @State var doctorSchedule = ""
+    @State var queue = ""
+    @State var patienName = ""
+    @State var isLoading = false
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    var doctor: DoctorModel
+    
+//    private var userDefault = UserDefaults.standard
+    
+    
+//    init(doctor: DoctorModel) {
+//        self.doctor = doctor
+//
+////        self.doctorName = doctor.name
+////        self.polyName = doctor.polyName
+////        self.doctorSchedule = doctor.schedule
+////        self.queue = "\(doctor.queueNumber)"
+//
+//    }
+    
+    
+    
     var body: some View {
     ZStack{
         VStack{
-        doctorDetail(doctorName: "Dr Samantha", poliklinikName: "Poliklinik Anak")
+        doctorDetail(doctorName: $doctorName, poliklinikName: $polyName)
             ZStack{
                 Color(#colorLiteral(red: 0.8, green: 0.8392156863, blue: 0.9254901961, alpha: 0.16))
                 .frame(width: UIScreen.main.bounds.width, height: 10)
             }
-        dataSummary(doctorSchedule: "08.00-14.00", queue: "20")
+        dataSummary(doctorSchedule: $doctorSchedule, queue: $queue)
             ZStack{
                 Color(#colorLiteral(red: 0.8, green: 0.8392156863, blue: 0.9254901961, alpha: 0.16))
                 .frame(width: UIScreen.main.bounds.width, height: 10)
             }
-        summaryPatient(patientData: "Samantha", toggle: self.$toggle)
+            summaryPatient(patientData: $patienName, toggle: self.$toggle)
             if toggle == true {
                 Text("Pastikan anda sudah memiliki surat rujukan")
                     .font(.callout)
@@ -38,21 +66,102 @@ struct Summary: View {
             }
  
         Spacer()
-        .padding(.vertical)
+            .padding(.vertical)
             
-        ambilAntrian()
-            .padding(.vertical, 25)
+            ZStack{
+                
+                Button(action: {
+                    self.requestQueue()
+                }) {
+                    ambilAntrian()
+                        .padding(.vertical, 25)
+                }
+                
+                ActivityIndicator(isAnimating: $isLoading, style: .large)
+                
+            }
+            
+            
+            
+            
+            
         }
         
+        
+    }.onAppear {
+        self.requestPatientData()
+        self.doctorName = self.doctor.name
+        self.polyName = self.doctor.polyName
+        self.doctorSchedule = self.doctor.schedule
+        self.queue = "\(self.doctor.queueNumber)"
+        }
     }
+    
+    
+    
+    // TODO: - Send request to backend, this is just a timer
+    private func requestQueue(){
+        isLoading = true
+    
+        
+        let userID = UserDefaults.standard.value(forKey: UserDefaultKey.userID.rawValue) as! String
+        
+        
+        // get current patiens
+        Firestore.firestore().collection("patient").document(doctor.name).getDocument { (snapshot, err) in
+                
+                if let err = err{
+                    print(err.localizedDescription)
+                    return
+                }
+            
+            var curentPatient = snapshot!.data()?["patients"] as! [String]
+            curentPatient.append("\(userID)+\(self.patienName)")
+            
+            
+            // update patient
+            Firestore.firestore().collection("patient").document(self.doctor.name).updateData([
+                "patients": curentPatient
+            ])
+            self.isLoading = false
+            self.mode.wrappedValue.dismiss()
+            self.mode.wrappedValue.dismiss()
+
+        }
+    }
+    
+    
+    
+    
+    private func requestPatientData(){
+        
+        
+        let userID = UserDefaults.standard.value(forKey: UserDefaultKey.userID.rawValue) as! String
+        
+        Firestore.firestore().collection("user").document(userID)
+            .getDocument { (snapshot, err) in
+                if let err = err{
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                if snapshot?.data() != nil {
+                    let patientName = snapshot?.data()?["name"] as! String
+                    self.patienName = patientName
+                }else{
+                   print("GAGAL MENGAMBIL DATA PASIEN")
+                }
+        }
+        
+        
     }
 }
 
 struct doctorDetail: View {
-    var doctorName = ""
-    var poliklinikName = ""
+    @Binding var doctorName: String
+    @Binding var poliklinikName: String
+    
     var body: some View {
-
     VStack{
         HStack{
             Image(systemName: "person")
@@ -60,7 +169,8 @@ struct doctorDetail: View {
                 .frame(width: 80, height: 80)
                 .background(Color.init(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
                 .cornerRadius(10)
-                .padding(.top,2)
+                .padding([.leading, .trailing], 20)
+                .padding(.top, 2)
                         
             VStack(alignment: .leading){
                 Text(doctorName)
@@ -86,8 +196,8 @@ struct doctorDetail: View {
 }
 
 struct dataSummary: View {
-var doctorSchedule = ""
-var queue = ""
+    @Binding var doctorSchedule: String
+    @Binding var queue: String
 
 var body: some View {
         VStack{
@@ -129,7 +239,7 @@ var body: some View {
 
 
 struct summaryPatient: View {
-    var patientData = ""
+    @Binding var patientData: String
     @Binding var toggle: Bool
     
     var body: some View {
@@ -188,10 +298,16 @@ struct ambilAntrian: View {
     }
 }
 
-
+//
 struct Summary_Previews: PreviewProvider {
     static var previews: some View {
-        Summary()
+        Summary(doctor: DoctorModel(id: UUID(), name: "", schedule: "", queueNumber: 2, polyID: 0, polyName: ""))
     }
 }
 
+//
+//struct Summary_Previews: PreviewProvider {
+//    static var previews: some View {
+//        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+//    }
+//}

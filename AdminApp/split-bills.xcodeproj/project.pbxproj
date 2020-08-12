@@ -15,7 +15,6 @@
 		1321A3A924CAEB180085210C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321A3A824CAEB180085210C /* HomePage.swift */; };
 		136D0C8124DFF78800CEB7FF /* CurrentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D0C8024DFF78800CEB7FF /* CurrentQueue.swift */; };
 		136D0C8324E0FACD00CEB7FF /* QueueList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136D0C8224E0FACD00CEB7FF /* QueueList.swift */; };
-		137365EC24E190DB00D2C28F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 137365EB24E190DB00D2C28F /* GoogleService-Info.plist */; };
 		13A833A124C7F847002EFCFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833A024C7F847002EFCFF /* AppDelegate.swift */; };
 		13A833A324C7F847002EFCFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833A224C7F847002EFCFF /* SceneDelegate.swift */; };
 		13A833A724C7F849002EFCFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A833A624C7F849002EFCFF /* Assets.xcassets */; };
@@ -29,8 +28,19 @@
 		13A833C524C9F805002EFCFF /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833C424C9F805002EFCFF /* MotherView.swift */; };
 		13A833C724C9FBFB002EFCFF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833C624C9FBFB002EFCFF /* ViewRouter.swift */; };
 		896BA64798B84928226253CD /* Pods_AdminApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9A72613D4C003521AB09E4 /* Pods_AdminApp.framework */; };
+		BE1D857824E41846003BE291 /* NotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857524E41846003BE291 /* NotifModel.swift */; };
+		BE1D857924E41846003BE291 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857624E41846003BE291 /* DoctorModel.swift */; };
+		BE1D857A24E41846003BE291 /* PolyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857724E41846003BE291 /* PolyModel.swift */; };
+		BE1D857E24E41869003BE291 /* KeyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857B24E41869003BE291 /* KeyHelper.swift */; };
+		BE1D857F24E41869003BE291 /* ActifityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857C24E41869003BE291 /* ActifityIndicatorView.swift */; };
+		BE1D858024E41869003BE291 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857D24E41869003BE291 /* NetworkService.swift */; };
+		BE1D858524E419EB003BE291 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858124E419EB003BE291 /* Array+Extension.swift */; };
+		BE1D858624E419EB003BE291 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */; };
+		BE1D858724E419EB003BE291 /* BidirectionalCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858324E419EB003BE291 /* BidirectionalCollection+Extension.swift */; };
+		BE1D858824E419EB003BE291 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858424E419EB003BE291 /* Binding+Extension.swift */; };
 		BE51A13224CAD6300082B71C /* UIAplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13124CAD6300082B71C /* UIAplication+extension.swift */; };
 		BE51A13624CAEC1B0082B71C /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */; };
+		BE8D571124E411D10090A926 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE8D571024E411D10090A926 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +52,6 @@
 		1321A3A824CAEB180085210C /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		136D0C8024DFF78800CEB7FF /* CurrentQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentQueue.swift; sourceTree = "<group>"; };
 		136D0C8224E0FACD00CEB7FF /* QueueList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueList.swift; sourceTree = "<group>"; };
-		137365EB24E190DB00D2C28F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../sources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13A8339D24C7F847002EFCFF /* AdminApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdminApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A833A024C7F847002EFCFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A833A224C7F847002EFCFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +68,19 @@
 		13A833C624C9FBFB002EFCFF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		2079183BFD048C8B9C5AC3F0 /* Pods-AdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdminApp.debug.xcconfig"; path = "Target Support Files/Pods-AdminApp/Pods-AdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7A0267A08320F5425E4B142E /* Pods-AdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdminApp.release.xcconfig"; path = "Target Support Files/Pods-AdminApp/Pods-AdminApp.release.xcconfig"; sourceTree = "<group>"; };
+		BE1D857524E41846003BE291 /* NotifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifModel.swift; sourceTree = "<group>"; };
+		BE1D857624E41846003BE291 /* DoctorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		BE1D857724E41846003BE291 /* PolyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyModel.swift; sourceTree = "<group>"; };
+		BE1D857B24E41869003BE291 /* KeyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHelper.swift; sourceTree = "<group>"; };
+		BE1D857C24E41869003BE291 /* ActifityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActifityIndicatorView.swift; sourceTree = "<group>"; };
+		BE1D857D24E41869003BE291 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BE1D858124E419EB003BE291 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
+		BE1D858324E419EB003BE291 /* BidirectionalCollection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BidirectionalCollection+Extension.swift"; sourceTree = "<group>"; };
+		BE1D858424E419EB003BE291 /* Binding+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		BE51A13124CAD6300082B71C /* UIAplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+extension.swift"; sourceTree = "<group>"; };
 		BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		BE8D571024E411D10090A926 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9A72613D4C003521AB09E4 /* Pods_AdminApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdminApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,13 +117,14 @@
 		13A8339F24C7F847002EFCFF /* split-bills */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D857424E41846003BE291 /* Model */,
 				BE51A13424CAEC090082B71C /* Helper */,
 				BE51A13324CAD7940082B71C /* Extension */,
 				13A833A024C7F847002EFCFF /* AppDelegate.swift */,
 				13A833A224C7F847002EFCFF /* SceneDelegate.swift */,
 				13A833A624C7F849002EFCFF /* Assets.xcassets */,
 				13A833AB24C7F849002EFCFF /* LaunchScreen.storyboard */,
-				137365EB24E190DB00D2C28F /* GoogleService-Info.plist */,
+				BE8D571024E411D10090A926 /* GoogleService-Info.plist */,
 				13A833AE24C7F849002EFCFF /* Info.plist */,
 				13A833A824C7F849002EFCFF /* Preview Content */,
 				13A833BC24C975D8002EFCFF /* OnBoarding */,
@@ -158,9 +179,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE1D857424E41846003BE291 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE1D857524E41846003BE291 /* NotifModel.swift */,
+				BE1D857624E41846003BE291 /* DoctorModel.swift */,
+				BE1D857724E41846003BE291 /* PolyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BE51A13324CAD7940082B71C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D858124E419EB003BE291 /* Array+Extension.swift */,
+				BE1D858324E419EB003BE291 /* BidirectionalCollection+Extension.swift */,
+				BE1D858424E419EB003BE291 /* Binding+Extension.swift */,
+				BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */,
 				BE51A13124CAD6300082B71C /* UIAplication+extension.swift */,
 			);
 			path = Extension;
@@ -169,6 +204,9 @@
 		BE51A13424CAEC090082B71C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D857C24E41869003BE291 /* ActifityIndicatorView.swift */,
+				BE1D857B24E41869003BE291 /* KeyHelper.swift */,
+				BE1D857D24E41869003BE291 /* NetworkService.swift */,
 				BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */,
 			);
 			path = Helper;
@@ -235,9 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A833AD24C7F849002EFCFF /* LaunchScreen.storyboard in Resources */,
-				137365EC24E190DB00D2C28F /* GoogleService-Info.plist in Resources */,
 				13A833AA24C7F849002EFCFF /* Preview Assets.xcassets in Resources */,
 				13A833A724C7F849002EFCFF /* Assets.xcassets in Resources */,
+				BE8D571124E411D10090A926 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,22 +331,32 @@
 				13A833C724C9FBFB002EFCFF /* ViewRouter.swift in Sources */,
 				136D0C8324E0FACD00CEB7FF /* QueueList.swift in Sources */,
 				1321A3A924CAEB180085210C /* HomePage.swift in Sources */,
+				BE1D857A24E41846003BE291 /* PolyModel.swift in Sources */,
 				13A833A124C7F847002EFCFF /* AppDelegate.swift in Sources */,
+				BE1D858024E41869003BE291 /* NetworkService.swift in Sources */,
+				BE1D857824E41846003BE291 /* NotifModel.swift in Sources */,
 				13A833B924C8B6B5002EFCFF /* PageViewController.swift in Sources */,
 				130E291A24CCDD44005C578C /* DoctorSchedule.swift in Sources */,
 				13A833BB24C8D11F002EFCFF /* PageControl.swift in Sources */,
+				BE1D857924E41846003BE291 /* DoctorModel.swift in Sources */,
+				BE1D858524E419EB003BE291 /* Array+Extension.swift in Sources */,
 				130E291C24CD7DFB005C578C /* Summary.swift in Sources */,
 				13A833B524C8B214002EFCFF /* Subview.swift in Sources */,
 				BE51A13224CAD6300082B71C /* UIAplication+extension.swift in Sources */,
 				13A833C524C9F805002EFCFF /* MotherView.swift in Sources */,
+				BE1D858824E419EB003BE291 /* Binding+Extension.swift in Sources */,
 				130E292024CDE24B005C578C /* ProfilePage.swift in Sources */,
 				13A833BE24C9F638002EFCFF /* LoginScreen.swift in Sources */,
 				BE51A13624CAEC1B0082B71C /* UserDefaultHelper.swift in Sources */,
 				136D0C8124DFF78800CEB7FF /* CurrentQueue.swift in Sources */,
 				130E291824CC88FE005C578C /* RegisterData.swift in Sources */,
+				BE1D857F24E41869003BE291 /* ActifityIndicatorView.swift in Sources */,
 				130E291624CC8016005C578C /* RegisterAccount.swift in Sources */,
+				BE1D858724E419EB003BE291 /* BidirectionalCollection+Extension.swift in Sources */,
+				BE1D857E24E41869003BE291 /* KeyHelper.swift in Sources */,
 				13A833A324C7F847002EFCFF /* SceneDelegate.swift in Sources */,
 				13A833B724C8B519002EFCFF /* OnboardingView.swift in Sources */,
+				BE1D858624E419EB003BE291 /* NSNotification+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"split-bills/Preview Content\"";
-				DEVELOPMENT_TEAM = 2P68KNF88Y;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "split-bills/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -469,7 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"split-bills/Preview Content\"";
-				DEVELOPMENT_TEAM = 2P68KNF88Y;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "split-bills/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -7,26 +7,89 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct CurrentQueue: View {
+    
+    @State var queueName: String = ""
+    @State var nextQueue: String = ""
+    @State var isLoading = false
+    @State var checkInDidTapped: Bool = false
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    var doctor: DoctorModel
     let image = "Register"
     var body: some View {
-      
-       
-        VStack {
-        Image(image)
-            .padding(.top, 100)
-            
-        listQueue()
         
+        ZStack{
+            
+            ActivityIndicator(isAnimating: $isLoading, style: .large)
+            
+            VStack {
+                Image(image)
+                    .padding(.top, 100)
+                
+                listQueue(queueName: $queueName, nextQueue: $nextQueue, checkInDidTapped: $checkInDidTapped.didSet(execute: { (_) in
+                    self.requestCheckIn()
+                }))
+                
+            }
+            
+            
+        }
+            
+            
+        .onAppear {
+            self.requestListPatient()
+        }
+    }
+    
+    
+    private func requestListPatient(){
+        Firestore.firestore().collection("patient").document(doctor.name).getDocument { (snapshot, err) in
+            
+            if let err = err{
+                print(err.localizedDescription)
+                return
+            }
+        
+        let curentPatient = snapshot!.data()?["patients"] as! [String]
+            self.queueName = curentPatient.first?.components(separatedBy: "+")[safe: 1] ?? ""
+            
+            self.nextQueue = curentPatient[safe: 1]?.components(separatedBy: "+")[safe: 1] ?? ""
+        }
+    }
+    
+    private func requestCheckIn(){
+        isLoading = true
+        Firestore.firestore().collection("patient").document(doctor.name).getDocument { (snapshot, err) in
+                
+                if let err = err{
+                    print(err.localizedDescription)
+                    return
+                }
+            
+            var curentPatient = snapshot!.data()?["patients"] as! [String]
+            curentPatient.removeFirst()
+            
+            
+            // update patient
+            Firestore.firestore().collection("patient").document(self.doctor.name).updateData([
+                "patients": curentPatient
+            ])
+            self.isLoading = false
+            self.mode.wrappedValue.dismiss()
+            self.mode.wrappedValue.dismiss()
+
         }
     }
 }
 
 
 struct listQueue: View {
-    var queueName = "Samantha"
-    var nextQueue = "Muhammad Rasyad"
+    @Binding var queueName: String
+    @Binding var nextQueue: String
+    @Binding var checkInDidTapped: Bool
     var body: some View {
         ZStack(){
             VStack{
@@ -64,7 +127,9 @@ struct listQueue: View {
                     .foregroundColor(Color.init(#colorLiteral(red: 0.3215686275, green: 0.3411764706, blue: 0.3607843137, alpha: 0.7549497003)))
                     .padding()
                     
-                Button(action: {}) {
+                Button(action: {
+                    self.checkInDidTapped.toggle()
+                }) {
                     Text("Check In")
                     .foregroundColor(.white)
                         .frame(width: 330, height: 25)
@@ -103,6 +168,6 @@ struct rounded: Shape {
 
 struct CurrentQueue_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentQueue()
+        CurrentQueue(doctor: DoctorModel(id: UUID(), name: "doctorname", schedule: "10:00", queueNumber: 2, polyID: 2, polyName: "polyname"))
     }
 }

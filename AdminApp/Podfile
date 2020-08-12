@@ -11,6 +11,9 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
 pod 'Firebase/Database'
+pod 'Firebase/Firestore'
+pod 'Firebase/Messaging'
+pod 'Alamofire', "~> 4.9.1"
 
 
   # Pods for split-bills
