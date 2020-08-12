@@ -18,24 +18,21 @@ enum NotificationTopics: String{
 }
 
 extension NotifModel{
-//    static func requestSendNotificaion(title: String, body: String, topics: NotificationTopics) -> Resource<NotifModel>{
-//        let url = URL(string: "https://fcm.googleapis.com/fcm/send")!
-//        let headers = [
-//            "Content-Type": "application/json",
-//            "Authorization" : KeyHelper.fcmKey.rawValue
-//        ]
-//        let params: [String: AnyObject] = [
-//            "notification" : [
-//                "title": "\(title)",
-//                "body": "\(body)"
-//            ],
-//            "to": topics.rawValue
-//        ]
-//
-//        "notification":{
-//          "title":"topik api",
-//          "body":"Hello teman sehat?"
-//        },
-//        return Resource<NotifModel>(url: url, httpMethod: .post, params: <#T##[String : String]?#>, headers: <#T##[String : String]?#>, isUserAuthHeader: <#T##Bool#>, cacheID: <#T##String?#>, data: <#T##Data?#>)
-//    }
+    static func requestSendNotificaion(title: String, body: String, topics: NotificationTopics) -> Resource<NotifModel>{
+        let url = URL(string: "https://fcm.googleapis.com/fcm/send")!
+        let headers = [
+            "Content-Type": "application/json",
+            "Authorization" : KeyHelper.fcmKey.rawValue
+        ]
+        let parameters: [String: Any] = [
+            "to" : topics.rawValue,
+            "notification": [
+                [
+                    "title" : "\(title)",
+                    "body": "\(body)"
+                ]
+            ]
+        ]
+        return Resource<NotifModel>(url: url, httpMethod: .post, params: parameters, headers: headers, isUserAuthHeader: false, cacheID: nil, data: nil)
+    }
 }

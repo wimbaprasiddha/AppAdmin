@@ -16,7 +16,8 @@ struct CurrentQueue: View {
     @State var isLoading = false
     @State var checkInDidTapped: Bool = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    
+    var notification = PushNotificationService()
+    var networkService = AlamofireNetworkingService()
     var doctor: DoctorModel
     let image = "Register"
     var body: some View {
@@ -54,9 +55,10 @@ struct CurrentQueue: View {
             }
         
         let curentPatient = snapshot!.data()?["patients"] as! [String]
-            self.queueName = curentPatient.first?.components(separatedBy: "+")[safe: 1] ?? ""
+            self.queueName = curentPatient.first?.slice(from: "name:", to: "+") ?? ""
             
-            self.nextQueue = curentPatient[safe: 1]?.components(separatedBy: "+")[safe: 1] ?? ""
+            self.nextQueue = curentPatient[safe: 1]?.slice(from: "name:", to: "+") ?? ""
+            
         }
     }
     
@@ -69,7 +71,9 @@ struct CurrentQueue: View {
                     return
                 }
             
+            
             var curentPatient = snapshot!.data()?["patients"] as! [String]
+            let numberQueue = curentPatient.first?.slice(from: "no:", to: "+") ?? ""
             curentPatient.removeFirst()
             
             
@@ -77,11 +81,20 @@ struct CurrentQueue: View {
             Firestore.firestore().collection("patient").document(self.doctor.name).updateData([
                 "patients": curentPatient
             ])
+            
+            
+            
             self.isLoading = false
-            self.mode.wrappedValue.dismiss()
-            self.mode.wrappedValue.dismiss()
-
+            self.notification.sendPushNotification(title: "Nomor Antrian", body: "Nomor antrian saat ini: \(numberQueue)", topics: .splitBill)
+            self.toHome()
         }
+    }
+    
+    
+    
+    private func toHome(){
+        self.mode.wrappedValue.dismiss()
+        self.mode.wrappedValue.dismiss()
     }
 }
 
@@ -165,9 +178,9 @@ struct rounded: Shape {
     }
     
     }
-
-struct CurrentQueue_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentQueue(doctor: DoctorModel(id: UUID(), name: "doctorname", schedule: "10:00", queueNumber: 2, polyID: 2, polyName: "polyname"))
-    }
-}
+//
+//struct CurrentQueue_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CurrentQueue(doctor: DoctorModel(id: UUID(), name: "doctorname", schedule: "10:00", queueNumber: 2, polyID: 2, polyName: "polyname"))
+//    }
+//}

@@ -39,7 +39,7 @@ struct AlamofireNetworkingService {
 struct Resource<T: Codable>{
     var url: URL
     var httpMethod: HTTPMethod
-    var params: [String: String]?
+    var params: [String: Any]?
     var headers: [String: String]?
     var isUserAuthHeader: Bool
     var cacheID: String?

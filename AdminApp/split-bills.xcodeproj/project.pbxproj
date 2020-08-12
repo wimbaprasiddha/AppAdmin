@@ -38,9 +38,11 @@
 		BE1D858624E419EB003BE291 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */; };
 		BE1D858724E419EB003BE291 /* BidirectionalCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858324E419EB003BE291 /* BidirectionalCollection+Extension.swift */; };
 		BE1D858824E419EB003BE291 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858424E419EB003BE291 /* Binding+Extension.swift */; };
+		BE1D858A24E46255003BE291 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858924E46255003BE291 /* String+Extension.swift */; };
+		BE1D858D24E4695D003BE291 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE1D858C24E4695D003BE291 /* GoogleService-Info.plist */; };
+		BE1D858F24E46A49003BE291 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858E24E46A49003BE291 /* PushNotificationService.swift */; };
 		BE51A13224CAD6300082B71C /* UIAplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13124CAD6300082B71C /* UIAplication+extension.swift */; };
 		BE51A13624CAEC1B0082B71C /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */; };
-		BE8D571124E411D10090A926 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE8D571024E411D10090A926 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,9 +80,12 @@
 		BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
 		BE1D858324E419EB003BE291 /* BidirectionalCollection+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BidirectionalCollection+Extension.swift"; sourceTree = "<group>"; };
 		BE1D858424E419EB003BE291 /* Binding+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		BE1D858924E46255003BE291 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		BE1D858B24E468E3003BE291 /* AdminApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdminApp.entitlements; sourceTree = "<group>"; };
+		BE1D858C24E4695D003BE291 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE1D858E24E46A49003BE291 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		BE51A13124CAD6300082B71C /* UIAplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+extension.swift"; sourceTree = "<group>"; };
 		BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
-		BE8D571024E411D10090A926 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD9A72613D4C003521AB09E4 /* Pods_AdminApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdminApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +104,7 @@
 		13A8339424C7F847002EFCFF = {
 			isa = PBXGroup;
 			children = (
+				BE1D858B24E468E3003BE291 /* AdminApp.entitlements */,
 				13A8339F24C7F847002EFCFF /* split-bills */,
 				13A8339E24C7F847002EFCFF /* Products */,
 				58871AE35F6640875BB84D19 /* Pods */,
@@ -124,7 +130,7 @@
 				13A833A224C7F847002EFCFF /* SceneDelegate.swift */,
 				13A833A624C7F849002EFCFF /* Assets.xcassets */,
 				13A833AB24C7F849002EFCFF /* LaunchScreen.storyboard */,
-				BE8D571024E411D10090A926 /* GoogleService-Info.plist */,
+				BE1D858C24E4695D003BE291 /* GoogleService-Info.plist */,
 				13A833AE24C7F849002EFCFF /* Info.plist */,
 				13A833A824C7F849002EFCFF /* Preview Content */,
 				13A833BC24C975D8002EFCFF /* OnBoarding */,
@@ -197,6 +203,7 @@
 				BE1D858424E419EB003BE291 /* Binding+Extension.swift */,
 				BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */,
 				BE51A13124CAD6300082B71C /* UIAplication+extension.swift */,
+				BE1D858924E46255003BE291 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				BE1D857B24E41869003BE291 /* KeyHelper.swift */,
 				BE1D857D24E41869003BE291 /* NetworkService.swift */,
 				BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */,
+				BE1D858E24E46A49003BE291 /* PushNotificationService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -273,9 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A833AD24C7F849002EFCFF /* LaunchScreen.storyboard in Resources */,
+				BE1D858D24E4695D003BE291 /* GoogleService-Info.plist in Resources */,
 				13A833AA24C7F849002EFCFF /* Preview Assets.xcassets in Resources */,
 				13A833A724C7F849002EFCFF /* Assets.xcassets in Resources */,
-				BE8D571124E411D10090A926 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1D858F24E46A49003BE291 /* PushNotificationService.swift in Sources */,
 				13A833C724C9FBFB002EFCFF /* ViewRouter.swift in Sources */,
 				136D0C8324E0FACD00CEB7FF /* QueueList.swift in Sources */,
 				1321A3A924CAEB180085210C /* HomePage.swift in Sources */,
@@ -356,6 +365,7 @@
 				BE1D857E24E41869003BE291 /* KeyHelper.swift in Sources */,
 				13A833A324C7F847002EFCFF /* SceneDelegate.swift in Sources */,
 				13A833B724C8B519002EFCFF /* OnboardingView.swift in Sources */,
+				BE1D858A24E46255003BE291 /* String+Extension.swift in Sources */,
 				BE1D858624E419EB003BE291 /* NSNotification+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +503,7 @@
 			baseConfigurationReference = 2079183BFD048C8B9C5AC3F0 /* Pods-AdminApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdminApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"split-bills/Preview Content\"";
 				DEVELOPMENT_TEAM = YF2M6C4WM8;
@@ -503,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = personal.AdminApp;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.AdminApp.id;
 				PRODUCT_NAME = AdminApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,6 +526,7 @@
 			baseConfigurationReference = 7A0267A08320F5425E4B142E /* Pods-AdminApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdminApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"split-bills/Preview Content\"";
 				DEVELOPMENT_TEAM = YF2M6C4WM8;
@@ -525,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = personal.AdminApp;
+				PRODUCT_BUNDLE_IDENTIFIER = personal.AdminApp.id;
 				PRODUCT_NAME = AdminApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
