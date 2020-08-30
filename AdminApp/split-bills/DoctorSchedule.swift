@@ -13,7 +13,9 @@ struct DoctorSchedule: View {
     
     @EnvironmentObject var viewRouter: ViewRouter
     
+    @State var doctorsToView: [DoctorModel] = []
     @State var doctors: [DoctorModel] = []
+    @State var searchText: String = ""
     private var poly: PolyModel
     
     init(poly: PolyModel) {
@@ -27,14 +29,20 @@ struct DoctorSchedule: View {
             ZStack {
                 Color(#colorLiteral(red: 0.8, green: 0.8392156863, blue: 0.9254901961, alpha: 0.1621628853))
                     .edgesIgnoringSafeArea(.vertical)
-                
-                
-                List(doctors, id: \.id) { doctor in
-                    NavigationLink(destination: CurrentQueue(doctor: doctor)) {
-                        listDoctor(imageDoctor: "person", nameDoctor: doctor.name, currentQueue: "\(doctor.queueNumber)", schedule: doctor.schedule)
-                    }
+                VStack{
                     
+                    SearchBar(text: $searchText.didSet(execute: { (query) in
+                        self.filterDoctor(with: query)
+                    }))
+                    
+                    List(doctorsToView, id: \.id) { doctor in
+                        NavigationLink(destination: CurrentQueue(doctor: doctor)) {
+                            listDoctor(imageDoctor: "person", nameDoctor: doctor.name, currentQueue: "\(doctor.queueNumber)", schedule: doctor.schedule)
+                        }
+                        
+                    }
                 }
+                
             }
             .navigationBarTitle(Text(poly.name), displayMode: .inline)
             .onAppear {
@@ -81,11 +89,20 @@ struct DoctorSchedule: View {
                         
                         self.doctors.removeAll(where: {$0.name == doctor.name})
                         self.doctors.append(newDoctor)
+                        self.filterDoctor(with: "")
                     }
                     
                 }
                     
 //                self.doctors = doctors
+        }
+    }
+    
+    private func filterDoctor(with query: String){
+        if query == ""{
+            self.doctorsToView = doctors
+        }else{
+            self.doctorsToView = doctors.filter({$0.name.lowercased().contains(query.lowercased())})
         }
     }
 }

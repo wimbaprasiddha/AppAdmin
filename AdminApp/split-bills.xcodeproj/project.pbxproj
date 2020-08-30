@@ -43,6 +43,7 @@
 		BE1D858F24E46A49003BE291 /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D858E24E46A49003BE291 /* PushNotificationService.swift */; };
 		BE51A13224CAD6300082B71C /* UIAplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13124CAD6300082B71C /* UIAplication+extension.swift */; };
 		BE51A13624CAEC1B0082B71C /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */; };
+		BEE6110F24FBF90F00DFD3A7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE6110E24FBF90F00DFD3A7 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		BE1D858E24E46A49003BE291 /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		BE51A13124CAD6300082B71C /* UIAplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+extension.swift"; sourceTree = "<group>"; };
 		BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		BEE6110E24FBF90F00DFD3A7 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DD9A72613D4C003521AB09E4 /* Pods_AdminApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdminApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -216,6 +218,7 @@
 				BE1D857D24E41869003BE291 /* NetworkService.swift */,
 				BE51A13524CAEC1B0082B71C /* UserDefaultHelper.swift */,
 				BE1D858E24E46A49003BE291 /* PushNotificationService.swift */,
+				BEE6110E24FBF90F00DFD3A7 /* SearchBar.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				130E292024CDE24B005C578C /* ProfilePage.swift in Sources */,
 				13A833BE24C9F638002EFCFF /* LoginScreen.swift in Sources */,
 				BE51A13624CAEC1B0082B71C /* UserDefaultHelper.swift in Sources */,
+				BEE6110F24FBF90F00DFD3A7 /* SearchBar.swift in Sources */,
 				136D0C8124DFF78800CEB7FF /* CurrentQueue.swift in Sources */,
 				130E291824CC88FE005C578C /* RegisterData.swift in Sources */,
 				BE1D857F24E41869003BE291 /* ActifityIndicatorView.swift in Sources */,
