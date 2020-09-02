@@ -37,7 +37,7 @@ struct DoctorSchedule: View {
                     
                     List(doctorsToView, id: \.id) { doctor in
                         NavigationLink(destination: CurrentQueue(doctor: doctor)) {
-                            listDoctor(imageDoctor: "person", nameDoctor: doctor.name, currentQueue: "\(doctor.queueNumber)", schedule: doctor.schedule)
+                            listDoctor(imageDoctor: "person", nameDoctor: doctor.name, currentQueue: "\(doctor.queueNumber)", schedule: doctor.schedule, polyName: doctor.polyName)
                         }
                         
                     }
@@ -114,6 +114,7 @@ struct listDoctor: View {
     var nameDoctor = ""
     var currentQueue = ""
     var schedule = ""
+    var polyName = ""
     
     var body: some View {
         VStack {
@@ -133,7 +134,7 @@ struct listDoctor: View {
                                 .foregroundColor(Color.init(#colorLiteral(red: 0.1450980392, green: 0.1568627451, blue: 0.168627451, alpha: 1)))
                                 .padding(.vertical, 4)
                                 .lineLimit(2)
-                            Text("Dokter Umum")
+                            Text(polyName)
                                 .font(.subheadline)
                                 .foregroundColor(Color.init(#colorLiteral(red: 0.6274509804, green: 0.6431372549, blue: 0.6588235294, alpha: 1)))
                             
