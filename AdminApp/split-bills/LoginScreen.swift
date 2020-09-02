@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import FirebaseAuth
+import FirebaseFirestore
 
 class LoginScreenFactory: ObservableObject{
     
@@ -94,26 +95,55 @@ struct LoginScreen: View {
     }
     
     
-    private func loginConfirmation(){
-        isLoading = true
-        
-
-        Auth.auth().signIn(withEmail: factory.email, password: factory.pass) { (result, err) in
-            self.isLoading = false
-
-            if let err = err{
-                self.factory.alertTitle = ("failed to login", "\(err.localizedDescription)")
-                self.factory.showAlert.toggle()
-                return
-            }
-            
-            
-            self.viewRouter.initialPage = AnyView(HomePage().environmentObject(self.viewRouter))
-            self.userDefaults.setValue(true, forKey: UserDefaultKey.isUserLoggedIn.rawValue)
-            
-        }
-        
-    }
+      private func loginConfirmation(){
+          isLoading = true
+          
+          
+          Auth.auth().signIn(withEmail: factory.email, password: factory.pass) { (result, err) in
+              self.isLoading = false
+              
+              if let err = err{
+                  self.factory.alertTitle = ("Gagal Masuk", "\(err.localizedDescription)")
+                  self.factory.showAlert.toggle()
+                  return
+              }
+              
+              self.requestCheckUser()
+          }
+          
+      }
+      
+      
+      private func requestCheckUser() {
+          isLoading = true
+          let userID = "IOS-\(factory.email)"
+          
+          Firestore.firestore().collection("user").document(userID)
+              .getDocument { (snapshot, err) in
+                  self.isLoading = false
+                  if let err = err{
+                      print(err.localizedDescription)
+                      self.factory.alertTitle = ("Gagal Masuk", "Daftar terlebih dahulu")
+                      self.factory.showAlert = true
+                      return
+                  }
+                  
+                  
+                  if snapshot?.data() != nil {
+                      self.userDefaults.setValue(true, forKey: UserDefaultKey.isUserLoggedIn.rawValue)
+                      self.userDefaults.setValue(userID, forKey: UserDefaultKey.userID.rawValue)
+                      
+                      self.viewRouter.initialPage = AnyView(HomePage().environmentObject(self.viewRouter))
+                  }else{
+                      self.factory.alertTitle = ("Gagal Masuk", "Daftar terlebih dahulu")
+                      self.factory.showAlert = true
+                  }
+                  
+                  
+                  
+          }
+          
+      }
     
     struct ActivityIndicator: UIViewRepresentable {
         @Binding var isAnimating: Bool

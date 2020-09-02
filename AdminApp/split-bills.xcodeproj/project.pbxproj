@@ -28,6 +28,7 @@
 		13A833C524C9F805002EFCFF /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833C424C9F805002EFCFF /* MotherView.swift */; };
 		13A833C724C9FBFB002EFCFF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A833C624C9FBFB002EFCFF /* ViewRouter.swift */; };
 		896BA64798B84928226253CD /* Pods_AdminApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9A72613D4C003521AB09E4 /* Pods_AdminApp.framework */; };
+		BE040F1424FFF964002BB282 /* View+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE040F1324FFF964002BB282 /* View+Extention.swift */; };
 		BE1D857824E41846003BE291 /* NotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857524E41846003BE291 /* NotifModel.swift */; };
 		BE1D857924E41846003BE291 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857624E41846003BE291 /* DoctorModel.swift */; };
 		BE1D857A24E41846003BE291 /* PolyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D857724E41846003BE291 /* PolyModel.swift */; };
@@ -71,6 +72,7 @@
 		13A833C624C9FBFB002EFCFF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		2079183BFD048C8B9C5AC3F0 /* Pods-AdminApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdminApp.debug.xcconfig"; path = "Target Support Files/Pods-AdminApp/Pods-AdminApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7A0267A08320F5425E4B142E /* Pods-AdminApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdminApp.release.xcconfig"; path = "Target Support Files/Pods-AdminApp/Pods-AdminApp.release.xcconfig"; sourceTree = "<group>"; };
+		BE040F1324FFF964002BB282 /* View+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extention.swift"; sourceTree = "<group>"; };
 		BE1D857524E41846003BE291 /* NotifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifModel.swift; sourceTree = "<group>"; };
 		BE1D857624E41846003BE291 /* DoctorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
 		BE1D857724E41846003BE291 /* PolyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyModel.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				BE1D858224E419EB003BE291 /* NSNotification+Extension.swift */,
 				BE51A13124CAD6300082B71C /* UIAplication+extension.swift */,
 				BE1D858924E46255003BE291 /* String+Extension.swift */,
+				BE040F1324FFF964002BB282 /* View+Extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				BE1D857A24E41846003BE291 /* PolyModel.swift in Sources */,
 				13A833A124C7F847002EFCFF /* AppDelegate.swift in Sources */,
 				BE1D858024E41869003BE291 /* NetworkService.swift in Sources */,
+				BE040F1424FFF964002BB282 /* View+Extention.swift in Sources */,
 				BE1D857824E41846003BE291 /* NotifModel.swift in Sources */,
 				13A833B924C8B6B5002EFCFF /* PageViewController.swift in Sources */,
 				130E291A24CCDD44005C578C /* DoctorSchedule.swift in Sources */,

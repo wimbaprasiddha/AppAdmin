@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 struct HomePage: View {
     
@@ -26,6 +27,7 @@ struct HomePage: View {
     @State var isPolySelected = false
     @State var polySelected: PolyModel = PolyModel(name: "", image: "", id: 0)
     @State var navBarIsHidden: Bool = true
+    @State var username: String = ""
     
     let image =  "Home"
     private let userDefault = UserDefaults.standard
@@ -91,9 +93,14 @@ struct HomePage: View {
                             Image(image)
                         }
                         
-                        Greetings()
+                        Greetings(userName: $username)
                         
-                        Search()
+                        Search().isHidden(false, remove: false)
+                            .onTapGesture {
+                                self.polySelected = PolyModel(name: "", image: "", id: 0)
+                                self.navBarIsHidden = false
+                                self.isPolySelected = true
+                        }
                         
                         Poliklinik(selectedPoly: $polySelected.didSet(execute: { (value) in
                             self.navBarIsHidden = false
@@ -143,6 +150,7 @@ struct HomePage: View {
             }
             .onAppear {
                 self.navBarIsHidden = true
+                self.requestPatientData()
             }
         }.environmentObject(viewRouter)
     }
@@ -164,6 +172,31 @@ struct HomePage: View {
     
     
     
+    private func requestPatientData(){
+          
+          
+          let userID = UserDefaults.standard.value(forKey: UserDefaultKey.userID.rawValue) as! String
+          
+          Firestore.firestore().collection("user").document(userID)
+              .getDocument { (snapshot, err) in
+                  if let err = err{
+                      print(err.localizedDescription)
+                      return
+                  }
+                  
+                  if snapshot?.data() != nil {
+                      let patientName = snapshot?.data()?["name"] as! String
+                      self.username = patientName
+                  }else{
+                     print("GAGAL MENGAMBIL DATA PASIEN")
+                  }
+          }
+          
+          
+      }
+    
+    
+    
     
     
     /*
@@ -174,9 +207,10 @@ struct HomePage: View {
     
     
     struct Greetings: View {
+        @Binding var userName: String
         var body: some View {
             VStack{
-                Text("Hi Samantha")
+                Text("Hi \(userName)")
                     .font(.system(size: 40))
                     .bold()
                     .foregroundColor(Color.init(#colorLiteral(red: 0.1450980392, green: 0.1568627451, blue: 0.168627451, alpha: 1)))
