@@ -72,8 +72,13 @@ struct CurrentQueue: View {
                 }
             
             
+            
             var curentPatient = snapshot!.data()?["patients"] as! [String]
             let numberQueue = curentPatient.first?.slice(from: "no:", to: "+") ?? ""
+            
+            // sisa antrian pasien
+            let patientLeft = curentPatient.firstIndex(where: {$0.slice(from: "no:", to: "+") == numberQueue})
+            
             curentPatient.removeFirst()
             
             
@@ -85,8 +90,11 @@ struct CurrentQueue: View {
             
             
             self.isLoading = false
-            self.notification.sendPushNotification(title: "Nomor Antrian", body: "Nomor antrian saat ini: \(numberQueue)", topics: .splitBill)
-            self.toHome()
+            self.notification.sendPushNotification(
+                title: "Sisa antrian",
+                body: "Sisa antrian saat ini: \(patientLeft ?? 0)",
+                topics: .splitBill)
+//            self.toHome()
         }
     }
     
