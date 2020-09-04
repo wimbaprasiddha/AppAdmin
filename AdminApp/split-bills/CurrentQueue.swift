@@ -12,6 +12,7 @@ import FirebaseFirestore
 struct CurrentQueue: View {
     
     @State var queueName: String = ""
+    @State var queueDOB: String = ""
     @State var nextQueue: String = ""
     @State var isLoading = false
     @State var checkInDidTapped: Bool = false
@@ -32,7 +33,7 @@ struct CurrentQueue: View {
                 
                 listQueue(queueName: $queueName, nextQueue: $nextQueue, checkInDidTapped: $checkInDidTapped.didSet(execute: { (_) in
                     self.requestCheckIn()
-                }))
+                }), dob: $queueDOB)
                 
             }
             
@@ -59,6 +60,9 @@ struct CurrentQueue: View {
             
             self.nextQueue = curentPatient[safe: 1]?.slice(from: "name:", to: "+") ?? ""
             
+             let patientID = curentPatient.first?.slice(from: "id:", to: "+") ?? ""
+            self.getDOBPatient(id: patientID)
+            
         }
     }
     
@@ -76,16 +80,17 @@ struct CurrentQueue: View {
             var curentPatient = snapshot!.data()?["patients"] as! [String]
             let numberQueue = curentPatient.first?.slice(from: "no:", to: "+") ?? ""
             
+            
             // sisa antrian pasien
             let patientLeft = curentPatient.firstIndex(where: {$0.slice(from: "no:", to: "+") == numberQueue})
             
             curentPatient.removeFirst()
             
-            
             // update patient
             Firestore.firestore().collection("patient").document(self.doctor.name).updateData([
                 "patients": curentPatient
             ])
+            
             
             
             
@@ -96,6 +101,26 @@ struct CurrentQueue: View {
                 topics: .splitBill)
 //            self.toHome()
         }
+    }
+    
+    private func getDOBPatient(id: String){
+        
+        Firestore.firestore().collection("user").document(id)
+            .getDocument { (snapshot, err) in
+                if let err = err{
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                if snapshot?.data() != nil {
+                    let patientDOB = snapshot?.data()?["dateOfBirth"] as! String
+                    self.queueDOB = patientDOB
+                }else{
+                   print("GAGAL MENGAMBIL DATA PASIEN")
+                }
+        }
+        
+        
     }
     
     
@@ -111,6 +136,7 @@ struct listQueue: View {
     @Binding var queueName: String
     @Binding var nextQueue: String
     @Binding var checkInDidTapped: Bool
+    @Binding var dob: String
     var body: some View {
         ZStack(){
             VStack{
@@ -132,7 +158,7 @@ struct listQueue: View {
                 .bold()
                 .foregroundColor(Color.init(#colorLiteral(red: 0.3294117647, green: 0.737254902, blue: 0.4941176471, alpha: 1)))
                 
-                Text("tanggal lahir")
+                Text(dob)
                 .foregroundColor(Color.init(#colorLiteral(red: 0.1450980392, green: 0.1568627451, blue: 0.168627451, alpha: 1)))
                     
                 }.frame(width: 350, height: 60)

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseMessaging
+import FirebaseCore
 
 
 
@@ -66,14 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                print("Error fetching remote instance ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
-            }
-        }
+//
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                print("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                print("Remote instance ID token: \(result.token)")
+//            }
+//        }
         
         
              
