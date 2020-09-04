@@ -126,17 +126,22 @@ struct listQueue: View {
                 }
                 .padding(.top,25)
               
-                
+                VStack{
                 Text(queueName)
                 .font(.title)
                 .bold()
-                .frame(width: 350, height: 60)
                 .foregroundColor(Color.init(#colorLiteral(red: 0.3294117647, green: 0.737254902, blue: 0.4941176471, alpha: 1)))
+                
+                Text("tanggal lahir")
+                .foregroundColor(Color.init(#colorLiteral(red: 0.1450980392, green: 0.1568627451, blue: 0.168627451, alpha: 1)))
+                    
+                }.frame(width: 350, height: 60)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.init(#colorLiteral(red: 0.3294117647, green: 0.737254902, blue: 0.4941176471, alpha: 1)), lineWidth: 2)
                 )
+                
                     .padding(.top, 20)
                 
                 Text("Antrian Selanjutnya")
